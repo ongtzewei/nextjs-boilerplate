@@ -1,0 +1,18 @@
+services:
+  nextjs-app:
+    container_name: nextjs-app-container
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - GITHUB_CI_TOKEN=
+    env_file:
+      - ./.env.docker
+    ports:
+      - ${PORT}:${PORT}
+    networks: 
+      - playground-network
+
+networks:
+  playground-network:
+    external: true

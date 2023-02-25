@@ -3,21 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "audit": "better-npm-audit audit",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "clean": "rm -rf .next coverage",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:format": "prisma format",
+    "prisma:generate": "prisma generate",
+    "prisma:update": "npm run prisma:deploy && npm run prisma:generate",
+    "start": "npm run build && next start",
+    "start:dev": "next dev",
+    "start:prod": "npm run prisma:update && npm run start",
+    "tsc": "tsc"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
-    "@types/node": "18.13.0",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
+    "@next/font": "13.2.1",
+    "@prisma/client": "^4.10.1",
     "eslint": "8.34.0",
-    "eslint-config-next": "13.1.6",
-    "next": "13.1.6",
+    "eslint-config-next": "13.2.1",
+    "next": "13.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.14.1",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "better-npm-audit": "^3.7.3",
+    "husky": "^8.0.3",
+    "jest": "^29.4.3",
+    "prisma": "^4.10.1",
+    "ts-node": "^10.9.1",
     "typescript": "4.9.5"
   }
 }
