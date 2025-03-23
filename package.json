@@ -11,28 +11,28 @@
     "prisma:deploy": "prisma migrate deploy",
     "prisma:format": "prisma format",
     "prisma:generate": "prisma generate",
-    "prisma:update": "npm run prisma:deploy && npm run prisma:generate",
-    "start": "npm run build && next start",
+    "start": "next start",
     "start:dev": "next dev",
-    "start:prod": "npm run prisma:update && npm run start",
+    "start:prod": "pnpm prisma:deploy && pnpm start",
     "tsc": "tsc"
   },
   "dependencies": {
-    "@prisma/client": "^5.15.0",
-    "husky": "^9.0.11",
-    "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18"
+    "@prisma/client": "^6.5.0",
+    "@tailwindcss/postcss": "^4.0.15",
+    "husky": "^9.1.7",
+    "next": "15.2.3",
+    "react": "^19",
+    "react-dom": "^19"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4",
-    "postcss": "^8",
-    "prisma": "^5.15.0",
-    "tailwindcss": "^3.4.1",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.3",
+    "postcss": "^8.5.3",
+    "prisma": "^6.5.0",
+    "tailwindcss": "^4.0.15",
     "typescript": "^5"
   }
 }

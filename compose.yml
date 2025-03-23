@@ -1,3 +1,7 @@
+networks:
+  playground-network:
+    external: true
+
 services:
   nextjs-app:
     container_name: nextjs-app-container
@@ -13,6 +17,3 @@ services:
     networks: 
       - playground-network
 
-networks:
-  playground-network:
-    external: true
